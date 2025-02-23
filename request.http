@@ -1,12 +1,16 @@
 GET http://localhost:8000/users/name/sample
 
+###
+
+GET http://localhost:8000/users
+
 ### 
 
 GET http://localhost:8000/users/email/email2@wai.com
 
 ### 
 
-GET http://localhost:8000/users/id/4
+GET http://localhost:8000/users/id/1
 
 ### 
 
@@ -15,5 +19,5 @@ content-type: application/json
 
 {
     "name": "sample",
-    "email": "ema2i2sl222@wai.com"
+    "email": "email2@wai.com"
 }
