@@ -1,7 +1,7 @@
 import logging
 from pydantic import BaseModel
 from fastapi import FastAPI, Depends
-from app.repository import ChurrosRepository
+from pychurros import PyChurrosRepository
 from sqlmodel import create_engine, Session, SQLModel, Field
 
 logging.basicConfig()
@@ -18,7 +18,7 @@ class User(SQLModel, table=True):
 
 session = Session(engine)
 
-user_repo = ChurrosRepository[User](session, User)
+user_repo = PyChurrosRepository[User](session, User)
 
 app = FastAPI()
 

@@ -3,3 +3,6 @@ venv
 *db
 *sqlite3
 __pycache__
+dist
+.env
+pychurros.egg-info

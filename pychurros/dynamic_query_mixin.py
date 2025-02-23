@@ -2,7 +2,7 @@ import re
 from sqlmodel import select
 from typing import List, Generic, cast, Optional
 from fastapi import HTTPException
-from app.repository.base import T
+from pychurros.base import T
 
 class DynamicQueryMixin(Generic[T]):
     def _parse_method_name(self, method_name: str):
