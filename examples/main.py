@@ -1,7 +1,7 @@
 import logging
 from pydantic import BaseModel
 from fastapi import FastAPI, Depends
-from app.repository.base import ChurrosRepository
+from app.repository import ChurrosRepository
 from sqlmodel import create_engine, Session, SQLModel, Field
 
 logging.basicConfig()
