@@ -1,17 +1,21 @@
-[tool.poetry]
-name = "churros-data-ppa"
-version = "0.1.0"
-description = "makes it easy to implement repositories"
-authors = ["Gustavo Valle"]
-license = "MIT"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-black = "^22.12.0"
-pytest = "^7.2.0"
-
-[tool.poetry.dev-dependencies]
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pychurros"
+version = "0.1.1"
+description = "A dynamic repository library for SQLModel in Python"
+authors = [{name = "Gustavo Valle", email = "gustavo@devcrafter.io"}]
+license = {text = "Apache 2.0"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "sqlmodel",
+    "fastapi"
+]
+
+[project.urls]
+Homepage = "https://github.com/churros-py/churros-data-ppa"
+Documentation = "https://github.com/churros-py/churros-data-ppa"
+Source = "https://github.com/churros-py/churros-data-ppa"

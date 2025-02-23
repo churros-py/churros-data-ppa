@@ -1,15 +1,15 @@
-# **Churros Repository 🍩**
+# **Pychurros 🍩**
 *A lightweight, Spring JPA-style repository for FastAPI & SQLModel.*
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-Framework-blue?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![SQLModel](https://img.shields.io/badge/SQLModel-ORM-lightgrey?style=flat&logo=python)](https://sqlmodel.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.9+-yellow?style=flat&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 
 ---
 
 ## 📖 **Overview**
-**Churros Repository** is a dynamic and lightweight repository system for **FastAPI + SQLModel**, inspired by **Spring Data JPA**. It provides:
+**Pychurros** is a dynamic and lightweight repository system for **FastAPI + SQLModel**, inspired by **Spring Data JPA**. It provides:
 - ✅ **Automatic CRUD methods** (no SQL needed)
 - ✅ **Dynamic queries (`find_by_*`)** based on method names
 - ✅ **Full type safety & IDE auto-completion**
@@ -19,9 +19,9 @@
 ---
 
 ## 🚀 **Installation**
-### **1️⃣ Install Churros Repository**
+### **1️⃣ Install Pychurros**
 ```sh
-pip install fastapi sqlmodel uvicorn
+pip install pychurros
 ```
 
 ### **2️⃣ Create a FastAPI Project**
@@ -47,7 +47,7 @@ class User(SQLModel, table=True):
 ### **2️⃣ Setup Database & Repository**
 ```python
 from sqlmodel import create_engine, Session
-from churros import ChurrosRepository
+from pychurros import PyChurrosRepository
 from models import User
 
 DATABASE_URL = "sqlite:///./test.db"
@@ -55,7 +55,7 @@ engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False}, 
 
 session = Session(engine)
 
-user_repo = ChurrosRepository[User](session, User)
+user_repo = PyChurrosRepository[User](session, User)
 ```
 
 ### **3️⃣ Using Default CRUD Methods**
@@ -83,7 +83,7 @@ user_repo.delete_all()
 ---
 
 ## 🔍 **Dynamic Query Methods (`find_by_*`)**
-Churros Repository automatically builds **dynamic queries** based on method names.
+Pychurros automatically builds **dynamic queries** based on method names.
 
 ### **Examples**
 | **Method**                           | **Query Equivalent**                                      |
@@ -108,7 +108,7 @@ user_repo.find_by_name_and_email("Alice", "test@example.com")
 ```python
 from fastapi import FastAPI, Depends
 from sqlmodel import Session, SQLModel
-from app.repository.base import ChurrosRepository
+from pychurros import PyChurrosRepository
 from models import User
 from database import engine
 
@@ -120,14 +120,14 @@ def get_db():
     with Session(engine) as session:
         yield session
 
-user_repo = ChurrosRepository[User](session, User)
+user_repo = PyChurrosRepository[User](session, User)
 ```
 
 ### **2️⃣ Define API Endpoints**
 ```python
 from fastapi import FastAPI, Depends
 from sqlmodel import Session
-from app.repository.base import ChurrosRepository
+from pychurros import PyChurrosRepository
 from models import User
 
 app = FastAPI()
@@ -156,12 +156,12 @@ def delete_user(id: int, db: Session = Depends(get_db)):
 
 ---
 
-## 🔥 **Why Use Churros Repository?**
+## 🔥 **Why Use Pychurros?**
 ✅ **Zero Boilerplate** - No need to write SQL queries  
-✅ **Spring JPA-like Dynamic Queries** - `find_by_*` works automatically
-✅ **FastAPI & SQLModel Optimized** - Best performance & typing support
-✅ **IDE Auto-Completion** - Works with all major IDEs
-✅ **Lightweight & Simple** - No extra dependencies
+✅ **Spring JPA-like Dynamic Queries** - `find_by_*` works automatically  
+✅ **FastAPI & SQLModel Optimized** - Best performance & typing support  
+✅ **IDE Auto-Completion** - Works with all major IDEs  
+✅ **Lightweight & Simple** - No extra dependencies  
 
 ---
 
@@ -173,7 +173,7 @@ We welcome contributions! Feel free to:
 ---
 
 ## 📜 **License**
-Churros Repository is open-source under the [MIT License](LICENSE).
+Pychurros is open-source under the [Apache 2.0 License](LICENSE).
 
 ---
 
@@ -184,5 +184,4 @@ Churros Repository is open-source under the [MIT License](LICENSE).
 
 ---
 
-## 🎉 **Happy Coding with Churros Repository! 🍩**
----
+## 🎉 **Happy Coding with Pychurros! 🍩**
