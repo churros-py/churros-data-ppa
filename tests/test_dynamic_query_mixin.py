@@ -2,7 +2,7 @@ import pytest
 from fastapi import HTTPException
 from sqlmodel import SQLModel, Field
 from typing import List, Any
-from app.repository.dynamic_query_mixin import DynamicQueryMixin
+from pychurros.dynamic_query_mixin import DynamicQueryMixin
 
 class Dummy(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
